@@ -1,3 +1,9 @@
+/*! Copyright (c) 2016 Naufal Rabbani (http://github.com/BosNaufal)
+* Licensed Under MIT (http://opensource.org/licenses/MIT)
+*
+* React Click Outside - Version@1.0.0
+*
+*/
 
 import React from 'react';
 import ReactDOM from 'react-dom';
