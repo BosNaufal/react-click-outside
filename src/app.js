@@ -10,13 +10,17 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      currentClickedBoxy : null
+      clickedOutside : false
     }
   }
 
-  hasClickedOut(boxy){
+  refresh(){
+    window.location.reload()
+  }
+
+  hasClickedOut(){
     this.setState({
-      currentClickedBoxy: boxy
+      clickedOutside : true
     })
   }
 
@@ -24,15 +28,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ClickOutside onClickOutside={ () => this.hasClickedOut(1) }>
-          <h1>Box 1 { this.state.currentClickedBoxy == 1 ? 'Outside Me!' : '' }</h1>
+        <ClickOutside onClickOutside={ () => this.hasClickedOut() }>
+          <h1>Box 1 { this.state.clickedOutside ? 'Outside Me!' : '' }</h1>
         </ClickOutside>
-
-        <ClickOutside onClickOutside={ () => this.hasClickedOut(2) }>
-          <h1>Box 2 { this.state.currentClickedBoxy == 2 ? 'Outside Me!' : '' }</h1>
-        </ClickOutside>
-
-        <p>You Clicked Outside Box: <b>{ this.state.currentClickedBoxy }</b></p>
+        <button onClick={ () => this.refresh() } >Refresh</button>
       </div>
     )
   }
