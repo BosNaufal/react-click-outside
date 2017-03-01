@@ -22,13 +22,17 @@ class ClickOutside extends React.Component {
       if(e.target != me.el && !itsChildren) me.props.onClickOutside(e)
     }
 
-    // Attach Event Listener to body
+    // Attach click event listener to body
     document.addEventListener('click',this.evt, false)
+    // Attach touchstart event listener to body
+    document.addEventListener('touchstart',this.evt, false)
   }
 
   componentWillUnmount(){
-    // Remove Event Listener from body
+    // Remove click event listener from body
     document.removeEventListener('click',this.evt, false)
+    // Remove touchstart event listener from body
+    document.removeEventListener('touchstart',this.evt, false)
   }
 
   render(){
